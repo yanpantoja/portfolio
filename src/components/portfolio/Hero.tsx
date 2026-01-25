@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { personalInfo } from '@/data/portfolio';
 import { Mail, ChevronDown } from 'lucide-react';
 
@@ -23,6 +24,17 @@ export default function Hero() {
   return (
     <section className="portfolio-hero">
       <div className="portfolio-hero-content">
+        <div className="portfolio-hero-avatar">
+          <Image
+            src="/profile.jpeg"
+            alt={personalInfo.name}
+            width={120}
+            height={120}
+            priority
+            className="portfolio-hero-avatar-img"
+          />
+        </div>
+
         <h1 className="portfolio-hero-name">
           {personalInfo.name}
         </h1>
