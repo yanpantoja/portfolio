@@ -61,36 +61,6 @@ export const projects = [
   },
   {
     id: 2,
-    title: "Control Shield",
-    description:
-      "Premium financial consulting platform with interactive dashboard, client management and automated reports.",
-    longDescription: `Complete financial consulting system developed with
-      Laravel 12, Vue.js and Inertia.js. Includes authentication, admin dashboard,
-      and financial analysis modules.`,
-    tech: ["Laravel 12", "Vue.js", "Inertia.js", "MySQL", "Tailwind CSS"],
-    category: "SaaS Platform",
-    image: "/images/projects/control-shield.png",
-    github: "https://github.com/yanpantoja/control-shield",
-    demo: null,
-    featured: true,
-  },
-  {
-    id: 3,
-    title: "Samplize Theme",
-    description:
-      "Custom Shopify theme for headless paint sample store. Optimized for conversion with integrated A/B testing.",
-    longDescription: `Traditional Shopify theme development (Liquid) to complement
-      the existing headless version. Cross-domain redirect implementation and
-      AB Tasty integration for pricing experiments.`,
-    tech: ["Shopify", "Liquid", "JavaScript", "SCSS", "AB Tasty"],
-    category: "E-commerce",
-    image: "/images/projects/samplize.png",
-    github: null,
-    demo: "https://samplize.com",
-    featured: true,
-  },
-  {
-    id: 4,
     title: "Multi-Channel Automation",
     description:
       "Multi-channel communication automation system using Chatwoot and n8n for small and medium businesses.",
