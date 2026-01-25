@@ -415,6 +415,10 @@
     gap: 4px;
   }
 
+  .portfolio-header-nav--desktop {
+    display: flex;
+  }
+
   .portfolio-header-link {
     padding: 6px 12px;
     font-family: var(--font-family-mono);
@@ -429,6 +433,67 @@
   .portfolio-header-link:hover {
     color: var(--color-text);
     background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Mobile Menu Button - Hidden on Desktop */
+  .portfolio-header-menu-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+  }
+
+  .portfolio-header-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-accent);
+  }
+
+  /* Mobile Navigation Dropdown - Hidden on Desktop */
+  .portfolio-header-nav--mobile {
+    display: none;
+    flex-direction: column;
+    padding: 0 16px 16px;
+    gap: 4px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.25s ease;
+  }
+
+  .portfolio-header-nav--mobile.open {
+    max-height: 300px;
+    opacity: 1;
+    padding-top: 8px;
+  }
+
+  .portfolio-header-link--mobile {
+    display: block;
+    padding: 12px 16px;
+    font-family: var(--font-family-mono);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-text-dim);
+    text-decoration: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid transparent;
+    transition: all 0.15s ease;
+  }
+
+  .portfolio-header-link--mobile:hover,
+  .portfolio-header-link--mobile:focus {
+    color: var(--color-text);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--color-border);
   }
 
   .portfolio-main {
@@ -1264,17 +1329,18 @@
     display: none;
   }
 
-  .portfolio-header-nav {
-    flex: 1;
-    justify-content: flex-end;
-    overflow-x: auto;
-    gap: 2px;
+  /* Hide desktop nav, show mobile menu button */
+  .portfolio-header-nav--desktop {
+    display: none;
   }
 
-  .portfolio-header-link {
-    padding: 6px 8px;
-    font-size: 11px;
-    white-space: nowrap;
+  .portfolio-header-menu-btn {
+    display: flex;
+  }
+
+  /* Show mobile navigation dropdown */
+  .portfolio-header-nav--mobile {
+    display: flex;
   }
 
   /* Terminal Mobile */

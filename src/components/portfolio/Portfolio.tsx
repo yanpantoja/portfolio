@@ -1,6 +1,7 @@
 'use client';
 
-import { TerminalSquare, LayoutGrid } from 'lucide-react';
+import { useState } from 'react';
+import { TerminalSquare, LayoutGrid, Menu, X } from 'lucide-react';
 import type { Mode } from '@/lib/usePersistedMode';
 import { personalInfo } from '@/data/portfolio';
 import Hero from './Hero';
@@ -17,6 +18,19 @@ interface PortfolioProps {
 
 export default function Portfolio({ mode, onToggleMode }: PortfolioProps = {}) {
   const firstName = personalInfo.name.split(' ')[0].toLowerCase();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navLinks = [
+    { href: '#about', label: 'About' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#projects', label: 'Projects' },
+    { href: '#experience', label: 'Experience' },
+    { href: '#contact', label: 'Contact' },
+  ];
+
+  const handleNavClick = () => {
+    setMobileMenuOpen(false);
+  };
 
   return (
     <div className="portfolio-container">
@@ -46,15 +60,43 @@ export default function Portfolio({ mode, onToggleMode }: PortfolioProps = {}) {
             {firstName}@dev
           </span>
 
-          {/* Right: Navigation Links */}
-          <nav className="portfolio-header-nav">
-            <a href="#about" className="portfolio-header-link">About</a>
-            <a href="#skills" className="portfolio-header-link">Skills</a>
-            <a href="#projects" className="portfolio-header-link">Projects</a>
-            <a href="#experience" className="portfolio-header-link">Experience</a>
-            <a href="#contact" className="portfolio-header-link">Contact</a>
+          {/* Right: Navigation Links (Desktop) */}
+          <nav className="portfolio-header-nav portfolio-header-nav--desktop">
+            {navLinks.map((link) => (
+              <a key={link.href} href={link.href} className="portfolio-header-link">
+                {link.label}
+              </a>
+            ))}
           </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="portfolio-header-menu-btn"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={mobileMenuOpen}
+          >
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
+
+        {/* Mobile Navigation Dropdown */}
+        <nav
+          className={`portfolio-header-nav--mobile ${mobileMenuOpen ? 'open' : ''}`}
+          aria-hidden={!mobileMenuOpen}
+        >
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="portfolio-header-link--mobile"
+              onClick={handleNavClick}
+              tabIndex={mobileMenuOpen ? 0 : -1}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
       </header>
 
       <main className="portfolio-main">
