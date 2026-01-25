@@ -95,7 +95,7 @@ export function getSkills(): CommandOutput {
   const renderSkillCategory = (title: string, skillList: typeof skills.frontend) => {
     output.push(`<span class="command">${title}</span>`);
     skillList.forEach((skill) => {
-      const namepadding = SPACE.repeat(16 - skill.name.length);
+      const namepadding = SPACE.repeat(Math.max(1, 24 - skill.name.length));
       const barWidth = Math.round(skill.level / 10);
       const bar = "█".repeat(barWidth) + "░".repeat(10 - barWidth);
       output.push(`${SPACE}${SPACE}${skill.name}${namepadding}<span class="keys">[${bar}]</span> ${skill.level}%`);

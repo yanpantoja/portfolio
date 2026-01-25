@@ -56,7 +56,7 @@ export const projects = [
     category: "Shopify App",
     image: "/images/projects/bundle-builder.png",
     github: "https://github.com/yanpantoja/smart-bundle-builder",
-    demo: "https://samplize.com",
+    demo: null,
     featured: true,
   },
   {
