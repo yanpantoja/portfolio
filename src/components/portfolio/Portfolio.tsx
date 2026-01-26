@@ -9,6 +9,7 @@ import About from './About';
 import Skills from './Skills';
 import Projects from './Projects';
 import Experience from './Experience';
+import Certifications from './Certifications';
 import Contact from './Contact';
 
 interface PortfolioProps {
@@ -25,6 +26,7 @@ export default function Portfolio({ mode, onToggleMode }: PortfolioProps = {}) {
     { href: '#skills', label: 'Skills' },
     { href: '#projects', label: 'Projects' },
     { href: '#experience', label: 'Experience' },
+    { href: '#certifications', label: 'Certifications' },
     { href: '#contact', label: 'Contact' },
   ];
 
@@ -105,6 +107,7 @@ export default function Portfolio({ mode, onToggleMode }: PortfolioProps = {}) {
         <Skills />
         <Projects />
         <Experience />
+        <Certifications />
         <Contact />
       </main>
     </div>

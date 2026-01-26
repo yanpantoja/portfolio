@@ -1154,6 +1154,108 @@
   }
 
   /* ================================
+     CERTIFICATIONS SECTION
+     ================================ */
+
+  .portfolio-certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+  }
+
+  .portfolio-certification-card {
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    background: var(--color-bg-light);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+  }
+
+  .portfolio-certification-card:hover {
+    border-color: var(--color-accent3);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  .portfolio-certification-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    color: var(--color-accent);
+    margin-bottom: 16px;
+  }
+
+  .portfolio-certification-content {
+    flex: 1;
+    margin-bottom: 16px;
+  }
+
+  .portfolio-certification-name {
+    font-family: var(--font-family-mono);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 8px;
+    line-height: 1.4;
+  }
+
+  .portfolio-certification-issuer {
+    font-family: var(--font-family-mono);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+  }
+
+  .portfolio-certification-dates {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .portfolio-certification-date {
+    font-family: var(--font-family-mono);
+    font-size: 12px;
+    color: var(--color-text-dim);
+  }
+
+  .portfolio-certification-divider {
+    color: var(--color-border);
+    font-size: 12px;
+  }
+
+  .portfolio-certification-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    font-family: var(--font-family-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    align-self: flex-start;
+  }
+
+  .portfolio-certification-link:hover {
+    border-color: var(--color-accent);
+    background: var(--color-bg-light);
+    color: var(--color-accent2);
+  }
+
+  /* ================================
      CONTACT SECTION
      ================================ */
 

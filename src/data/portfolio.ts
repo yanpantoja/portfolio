@@ -111,3 +111,20 @@ export const education = [
     year: "2016",
   },
 ];
+
+export const certifications = [
+  {
+    name: "Liquid Storefronts for Theme Developers",
+    issuer: "Shopify",
+    issued: "Jul 2025",
+    expires: "Jul 2027",
+    credentialUrl: "https://www.credly.com/badges/cb2466ff-3899-4e40-bbf4-8f0c42f03ecb/linked_in_profile",
+  },
+  {
+    name: "Shopify Development Fundamentals: Verified Skill Badge",
+    issuer: "Shopify",
+    issued: "Jul 2025",
+    expires: "Jul 2027",
+    credentialUrl: "https://www.credly.com/badges/b186c99f-27ab-4426-b79d-93fd3fa1e4c2/linked_in_profile",
+  },
+];

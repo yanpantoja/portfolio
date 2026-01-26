@@ -1,4 +1,4 @@
-import { personalInfo, skills, projects, experience, education } from "@/data/portfolio";
+import { personalInfo, skills, projects, experience, education, certifications } from "@/data/portfolio";
 
 export type CommandOutput = string[];
 
@@ -21,6 +21,7 @@ export const COMMANDS = [
   "projects",
   "experience",
   "education",
+  "certifications",
   "contact",
   "whoami",
   "repo",
@@ -39,6 +40,7 @@ export function getBanner(): CommandOutput {
   output.push("");
   output.push(`Welcome to <span class="command">${personalInfo.name}'s</span> terminal portfolio v1.0.0`);
   output.push(`Type <span class="command">'help'</span> for a list of available commands.`);
+  output.push(`Switch to <span class="command">Portfolio</span> mode using the toggle in the top right corner.`);
   output.push("");
 
   return output;
@@ -52,6 +54,7 @@ export function getHelp(): CommandOutput {
     ["'projects'", "Browse my projects"],
     ["'experience'", "See my work history"],
     ["'education'", "Academic background"],
+    ["'certifications'", "Professional certifications"],
     ["'contact'", "How to reach me"],
     ["'whoami'", "Display current user"],
     ["'neofetch'", "System information"],
@@ -155,6 +158,26 @@ export function getEducation(): CommandOutput {
   return output;
 }
 
+export function getCertifications(): CommandOutput {
+  const output: CommandOutput = [""];
+
+  output.push(`<span class="command">Professional Certifications</span>`);
+  output.push("");
+
+  certifications.forEach((cert, index) => {
+    output.push(`${SPACE}${SPACE}<a href="${cert.credentialUrl}" target="_blank" class="link project-title">${cert.name}</a>`);
+    output.push(`${SPACE}${SPACE}${SPACE}${SPACE}Issued by <span class="command">${cert.issuer}</span>`);
+    output.push(`${SPACE}${SPACE}${SPACE}${SPACE}<span class="keys">Issued: ${cert.issued}</span> | <span class="keys">Expires: ${cert.expires}</span>`);
+    if (index < certifications.length - 1) output.push("");
+  });
+
+  output.push("");
+  output.push(`${certifications.length} certification(s) listed`);
+  output.push("");
+
+  return output;
+}
+
 export function getContact(): CommandOutput {
   const output: CommandOutput = [""];
 
@@ -221,6 +244,8 @@ export function processCommand(input: string): { output: CommandOutput; action?:
       return { output: getExperience() };
     case "education":
       return { output: getEducation() };
+    case "certifications":
+      return { output: getCertifications() };
     case "contact":
       return { output: getContact() };
     case "whoami":
