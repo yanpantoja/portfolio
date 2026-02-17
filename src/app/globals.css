@@ -415,25 +415,29 @@
     font-size: 14px;
     font-weight: 500;
     color: var(--color-text-dim);
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    flex-shrink: 0;
+    white-space: nowrap;
   }
 
   .portfolio-header-nav {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
   }
 
   .portfolio-header-nav--desktop {
     display: flex;
+    flex-shrink: 1;
+    min-width: 0;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
 
   .portfolio-header-link {
-    padding: 6px 12px;
+    padding: 6px 10px;
     font-family: var(--font-family-mono);
     font-size: 12px;
+    white-space: nowrap;
     font-weight: 500;
     color: var(--color-text-dim);
     text-decoration: none;
@@ -481,7 +485,7 @@
   }
 
   .portfolio-header-nav--mobile.open {
-    max-height: 300px;
+    max-height: 500px;
     opacity: 1;
     padding-top: 8px;
   }
