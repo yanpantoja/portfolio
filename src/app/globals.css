@@ -1065,6 +1065,278 @@
   }
 
   /* ================================
+     SHOPIFY APPS SECTION
+     ================================ */
+
+  .portfolio-app-intro {
+    font-family: var(--font-family-mono);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-text-dim);
+    margin-bottom: 32px;
+  }
+
+  .portfolio-app-grid {
+    display: grid;
+    gap: 24px;
+  }
+
+  .portfolio-app-card {
+    padding: 28px;
+    background: var(--color-bg-light);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    transition: border-color 0.2s ease;
+  }
+
+  .portfolio-app-card:hover {
+    border-color: var(--color-accent3);
+  }
+
+  .portfolio-app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .portfolio-app-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    font-family: var(--font-family-mono);
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 4px;
+  }
+
+  .portfolio-app-status--production {
+    color: #27c93f;
+    background: rgba(39, 201, 63, 0.1);
+    border: 1px solid rgba(39, 201, 63, 0.3);
+  }
+
+  .portfolio-app-status--development {
+    color: #ffbd2e;
+    background: rgba(255, 189, 46, 0.1);
+    border: 1px solid rgba(255, 189, 46, 0.3);
+  }
+
+  .portfolio-app-icon {
+    color: var(--color-accent);
+  }
+
+  .portfolio-app-title {
+    font-family: var(--font-family-mono);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 12px;
+    letter-spacing: -0.01em;
+  }
+
+  .portfolio-app-desc {
+    font-family: var(--font-family-mono);
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--color-text-dim);
+    margin-bottom: 20px;
+  }
+
+  .portfolio-app-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+
+  .portfolio-app-tech-tag {
+    padding: 4px 10px;
+    font-family: var(--font-family-mono);
+    font-size: 11px;
+    color: var(--color-text-dim);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+  }
+
+  .portfolio-app-details {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.35s ease, opacity 0.25s ease;
+  }
+
+  .portfolio-app-details--open {
+    grid-template-rows: 1fr;
+    opacity: 1;
+    transition: grid-template-rows 0.35s ease, opacity 0.35s ease 0.1s;
+  }
+
+  .portfolio-app-details-inner {
+    overflow: hidden;
+  }
+
+  .portfolio-app-block {
+    margin-bottom: 24px;
+  }
+
+  .portfolio-app-block-title {
+    font-family: var(--font-family-mono);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+
+  .portfolio-app-block-text {
+    font-family: var(--font-family-mono);
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--color-text-dim);
+  }
+
+  .portfolio-app-features {
+    margin-bottom: 24px;
+  }
+
+  .portfolio-app-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .portfolio-app-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: var(--font-family-mono);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+  }
+
+  .portfolio-app-feature-icon {
+    color: #27c93f;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .portfolio-app-highlights {
+    margin-bottom: 24px;
+  }
+
+  .portfolio-app-highlight-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .portfolio-app-highlight {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: var(--font-family-mono);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+  }
+
+  .portfolio-app-highlight-icon {
+    color: #ffbd2e;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .portfolio-app-methodology {
+    padding: 20px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+
+  .portfolio-app-methodology-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: var(--color-accent);
+  }
+
+  .portfolio-app-methodology-title {
+    font-family: var(--font-family-mono);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .portfolio-app-methodology-desc {
+    font-family: var(--font-family-mono);
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--color-text-dim);
+    margin-bottom: 14px;
+  }
+
+  .portfolio-app-methodology-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .portfolio-app-methodology-list li {
+    font-family: var(--font-family-mono);
+    font-size: 12px;
+    line-height: 1.6;
+    color: var(--color-text-dim);
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .portfolio-app-methodology-list li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .portfolio-app-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    font-family: var(--font-family-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .portfolio-app-toggle:hover {
+    border-color: var(--color-accent);
+    background: var(--color-bg-light);
+  }
+
+  /* ================================
      EXPERIENCE SECTION
      ================================ */
 
@@ -1478,6 +1750,18 @@
   .portfolio-timeline-header {
     flex-direction: column;
     gap: 8px;
+  }
+
+  .portfolio-app-card {
+    padding: 20px;
+  }
+
+  .portfolio-app-title {
+    font-size: 17px;
+  }
+
+  .portfolio-app-methodology {
+    padding: 16px;
   }
   }
 }

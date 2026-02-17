@@ -10,7 +10,7 @@ export default function Projects() {
   return (
     <section id="projects" className="portfolio-section">
       <div className="portfolio-section-header">
-        <span className="portfolio-section-number">03</span>
+        <span className="portfolio-section-number">04</span>
         <h2 className="portfolio-section-title">Projects</h2>
       </div>
 

@@ -6,7 +6,7 @@ export default function Experience() {
   return (
     <section id="experience" className="portfolio-section">
       <div className="portfolio-section-header">
-        <span className="portfolio-section-number">04</span>
+        <span className="portfolio-section-number">05</span>
         <h2 className="portfolio-section-title">Experience</h2>
       </div>
 

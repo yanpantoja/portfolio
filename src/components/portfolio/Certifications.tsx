@@ -7,7 +7,7 @@ export default function Certifications() {
   return (
     <section id="certifications" className="portfolio-section">
       <div className="portfolio-section-header">
-        <span className="portfolio-section-number">05</span>
+        <span className="portfolio-section-number">06</span>
         <h2 className="portfolio-section-title">Certifications</h2>
       </div>
 

@@ -1,4 +1,4 @@
-import { personalInfo, skills, projects, experience, education, certifications } from "@/data/portfolio";
+import { personalInfo, skills, projects, experience, education, certifications, shopifyApps } from "@/data/portfolio";
 
 export type CommandOutput = string[];
 
@@ -18,6 +18,7 @@ export const COMMANDS = [
   "help",
   "about",
   "skills",
+  "shopify-apps",
   "projects",
   "experience",
   "education",
@@ -51,6 +52,7 @@ export function getHelp(): CommandOutput {
     ["'help'", "Display this help message"],
     ["'about'", "Learn more about me"],
     ["'skills'", "View my technical skills"],
+    ["'shopify-apps'", "Shopify app development"],
     ["'projects'", "Browse my projects"],
     ["'experience'", "See my work history"],
     ["'education'", "Academic background"],
@@ -110,6 +112,40 @@ export function getSkills(): CommandOutput {
   renderSkillCategory("Frontend", skills.frontend);
   renderSkillCategory("Backend", skills.backend);
   renderSkillCategory("Tools & Platforms", skills.tools);
+
+  return output;
+}
+
+export function getShopifyApps(): CommandOutput {
+  const output: CommandOutput = [""];
+
+  output.push(`<span class="command">Shopify Apps</span> — Built for an e-commerce client in the paint industry`);
+  output.push("");
+
+  shopifyApps.forEach((app, index) => {
+    const statusColor = app.status === "Production" ? "#27c93f" : "#ffbd2e";
+    output.push(`${SPACE}${SPACE}<span class="project-title">${app.name}</span>`);
+    output.push(`${SPACE}${SPACE}${SPACE}${SPACE}<span style="color:${statusColor}">[${app.status}]</span>`);
+    output.push(`${SPACE}${SPACE}${SPACE}${SPACE}<span class="project-desc">${app.shortDescription}</span>`);
+    output.push(`${SPACE}${SPACE}${SPACE}${SPACE}<span class="command">[${app.tech.join(", ")}]</span>`);
+    output.push("");
+    output.push(`${SPACE}${SPACE}${SPACE}${SPACE}<span class="keys">Features:</span>`);
+    app.features.forEach((feature) => {
+      output.push(`${SPACE}${SPACE}${SPACE}${SPACE}${SPACE}${SPACE}• ${feature}`);
+    });
+    output.push("");
+    output.push(`${SPACE}${SPACE}${SPACE}${SPACE}<span class="keys">Highlights:</span>`);
+    app.highlights.forEach((highlight) => {
+      output.push(`${SPACE}${SPACE}${SPACE}${SPACE}${SPACE}${SPACE}⚡ ${highlight}`);
+    });
+    output.push("");
+    output.push(`${SPACE}${SPACE}${SPACE}${SPACE}<span class="keys">Methodology:</span> ${app.methodology.name}`);
+    if (index < shopifyApps.length - 1) output.push("─".repeat(40));
+    output.push("");
+  });
+
+  output.push(`${shopifyApps.length} app(s) listed`);
+  output.push("");
 
   return output;
 }
@@ -238,6 +274,8 @@ export function processCommand(input: string): { output: CommandOutput; action?:
       return { output: getAbout() };
     case "skills":
       return { output: getSkills() };
+    case "shopify-apps":
+      return { output: getShopifyApps() };
     case "projects":
       return { output: getProjects() };
     case "experience":

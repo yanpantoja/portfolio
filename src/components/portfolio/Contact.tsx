@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <section id="contact" className="portfolio-section portfolio-section--contact">
       <div className="portfolio-section-header">
-        <span className="portfolio-section-number">06</span>
+        <span className="portfolio-section-number">07</span>
         <h2 className="portfolio-section-title">Contact</h2>
       </div>
 

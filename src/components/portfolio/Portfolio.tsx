@@ -7,6 +7,7 @@ import { personalInfo } from '@/data/portfolio';
 import Hero from './Hero';
 import About from './About';
 import Skills from './Skills';
+import ShopifyApps from './ShopifyApps';
 import Projects from './Projects';
 import Experience from './Experience';
 import Certifications from './Certifications';
@@ -24,6 +25,7 @@ export default function Portfolio({ mode, onToggleMode }: PortfolioProps = {}) {
   const navLinks = [
     { href: '#about', label: 'About' },
     { href: '#skills', label: 'Skills' },
+    { href: '#shopify-apps', label: 'Shopify Apps' },
     { href: '#projects', label: 'Projects' },
     { href: '#experience', label: 'Experience' },
     { href: '#certifications', label: 'Certifications' },
@@ -105,6 +107,7 @@ export default function Portfolio({ mode, onToggleMode }: PortfolioProps = {}) {
         <Hero />
         <About />
         <Skills />
+        <ShopifyApps />
         <Projects />
         <Experience />
         <Certifications />
