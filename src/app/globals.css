@@ -1315,6 +1315,48 @@
     font-weight: 600;
   }
 
+  .portfolio-app-subsection-title {
+    font-family: var(--font-family-mono);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+    margin-top: 32px;
+  }
+
+  .portfolio-app-outcome {
+    padding: 20px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid #27c93f;
+    border-radius: 8px;
+    margin-bottom: 8px;
+  }
+
+  .portfolio-app-outcome-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: #27c93f;
+  }
+
+  .portfolio-app-outcome-title {
+    font-family: var(--font-family-mono);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .portfolio-app-outcome-text {
+    font-family: var(--font-family-mono);
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--color-text-dim);
+  }
+
   .portfolio-app-toggle {
     display: inline-flex;
     align-items: center;

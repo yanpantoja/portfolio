@@ -135,6 +135,53 @@ export const shopifyApps = [
   },
 ];
 
+export const shopifyIntegrations = [
+  {
+    id: 1,
+    name: "Intercom Customer Support Automation",
+    status: "Production",
+    shortDescription: "Bot-powered customer support system with 8 API endpoints enabling Intercom bots (Hugh/Finn) to autonomously handle orders, refunds, and shipping updates via Shopify Admin API.",
+    problem: "Customer support agents were manually looking up orders, processing refunds, and updating addresses through the Shopify admin — slow and error-prone for a high-volume paint sample store.",
+    solution: "Built 8 Express.js API endpoints that Intercom bots call autonomously: order lookup, address updates with validation, replacement orders with intelligent product matching, full/partial/shipping refunds with bundle detection, and auto-generated free shipping codes.",
+    features: [
+      "Multi-strategy product matching (exact, partial, code, fuzzy at 60%+ confidence)",
+      "Natural language address parsing with Shopify validation",
+      "Bundle detection — refunds entire bundle when a component is requested",
+      "Idempotent replacement orders with duplicate prevention",
+      "Auto-generated free shipping codes (24h window, country-locked)",
+      "HMAC-based secure user authentication",
+    ],
+    tech: ["Express.js", "Shopify Admin API", "Shopify GraphQL", "Intercom SDK", "Node.js"],
+    highlights: [
+      "~1,660 lines of API code handling all customer support scenarios",
+      "All endpoints return HTTP 200 (Intercom protocol requirement) with structured error payloads",
+      "Fuzzy product matching handles misspellings and partial color names",
+    ],
+  },
+  {
+    id: 2,
+    name: "Flagship/ABTasty A/B Testing",
+    status: "Production",
+    shortDescription: "Feature-flagged A/B test comparing two promotional tier strategies (free shipping + free samples thresholds) to optimize cart conversion. The test variation won and was adopted.",
+    problem: "The client needed data to decide between two promotional tier structures for the cart progress bar — the original thresholds vs. a more aggressive variation with earlier rewards at lower sample counts.",
+    solution: "Integrated Flagship SDK (server + client) with cookie-based visitor tracking to split traffic between two tier configurations. A Theme progress bar component dynamically rendered the correct tiers based on the visitor's assigned variation.",
+    features: [
+      "Server-side + client-side Flagship SDK initialization with SSR hydration",
+      "Cookie-based visitor ID persistence (UUID v4 generation)",
+      "Environment-aware ABTasty script loading (prod/dev)",
+      "Dynamic tier rendering in cart progress bar component",
+      "Health check API endpoint for monitoring",
+    ],
+    tech: ["Flagship SDK", "ABTasty", "Nuxt.js", "Vue.js", "Feature Flags"],
+    highlights: [
+      "Test variation (v2_2) won — adopted as the new default tier structure",
+      "Clean removal after test: infrastructure restored for future campaigns",
+      "Zero impact on page load — async script loading with 200ms timeout fallback",
+    ],
+    outcome: "The test variation with more aggressive reward thresholds (10→Free Shipping, 13→1 Free Sample, 17→+1 Free Sample) outperformed the original and was adopted as the permanent configuration.",
+  },
+];
+
 export const experience = [
   {
     role: "Shopify Developer",

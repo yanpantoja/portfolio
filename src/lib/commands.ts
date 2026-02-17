@@ -1,4 +1,4 @@
-import { personalInfo, skills, projects, experience, education, certifications, shopifyApps } from "@/data/portfolio";
+import { personalInfo, skills, projects, experience, education, certifications, shopifyApps, shopifyIntegrations } from "@/data/portfolio";
 
 export type CommandOutput = string[];
 
@@ -18,7 +18,7 @@ export const COMMANDS = [
   "help",
   "about",
   "skills",
-  "shopify-apps",
+  "shopify",
   "projects",
   "experience",
   "education",
@@ -52,7 +52,7 @@ export function getHelp(): CommandOutput {
     ["'help'", "Display this help message"],
     ["'about'", "Learn more about me"],
     ["'skills'", "View my technical skills"],
-    ["'shopify-apps'", "Shopify app development"],
+    ["'shopify'", "Shopify development"],
     ["'projects'", "Browse my projects"],
     ["'experience'", "See my work history"],
     ["'education'", "Academic background"],
@@ -116,10 +116,13 @@ export function getSkills(): CommandOutput {
   return output;
 }
 
-export function getShopifyApps(): CommandOutput {
+export function getShopify(): CommandOutput {
   const output: CommandOutput = [""];
 
-  output.push(`<span class="command">Shopify Apps</span> — Built for an e-commerce client in the paint industry`);
+  output.push(`<span class="command">Shopify Development</span> — Built for an e-commerce client in the paint industry`);
+  output.push("");
+
+  output.push(`<span class="keys">── Apps ──</span>`);
   output.push("");
 
   shopifyApps.forEach((app, index) => {
@@ -144,7 +147,34 @@ export function getShopifyApps(): CommandOutput {
     output.push("");
   });
 
-  output.push(`${shopifyApps.length} app(s) listed`);
+  output.push(`<span class="keys">── Integrations ──</span>`);
+  output.push("");
+
+  shopifyIntegrations.forEach((integration, index) => {
+    const statusColor = integration.status === "Production" ? "#27c93f" : "#ffbd2e";
+    output.push(`${SPACE}${SPACE}<span class="project-title">${integration.name}</span>`);
+    output.push(`${SPACE}${SPACE}${SPACE}${SPACE}<span style="color:${statusColor}">[${integration.status}]</span>`);
+    output.push(`${SPACE}${SPACE}${SPACE}${SPACE}<span class="project-desc">${integration.shortDescription}</span>`);
+    output.push(`${SPACE}${SPACE}${SPACE}${SPACE}<span class="command">[${integration.tech.join(", ")}]</span>`);
+    output.push("");
+    output.push(`${SPACE}${SPACE}${SPACE}${SPACE}<span class="keys">Features:</span>`);
+    integration.features.forEach((feature) => {
+      output.push(`${SPACE}${SPACE}${SPACE}${SPACE}${SPACE}${SPACE}• ${feature}`);
+    });
+    output.push("");
+    output.push(`${SPACE}${SPACE}${SPACE}${SPACE}<span class="keys">Highlights:</span>`);
+    integration.highlights.forEach((highlight) => {
+      output.push(`${SPACE}${SPACE}${SPACE}${SPACE}${SPACE}${SPACE}⚡ ${highlight}`);
+    });
+    if (integration.outcome) {
+      output.push("");
+      output.push(`${SPACE}${SPACE}${SPACE}${SPACE}<span class="keys">Outcome:</span> ${integration.outcome}`);
+    }
+    if (index < shopifyIntegrations.length - 1) output.push("─".repeat(40));
+    output.push("");
+  });
+
+  output.push(`${shopifyApps.length} app(s) + ${shopifyIntegrations.length} integration(s) listed`);
   output.push("");
 
   return output;
@@ -274,8 +304,8 @@ export function processCommand(input: string): { output: CommandOutput; action?:
       return { output: getAbout() };
     case "skills":
       return { output: getSkills() };
-    case "shopify-apps":
-      return { output: getShopifyApps() };
+    case "shopify":
+      return { output: getShopify() };
     case "projects":
       return { output: getProjects() };
     case "experience":

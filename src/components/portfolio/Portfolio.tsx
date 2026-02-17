@@ -25,7 +25,7 @@ export default function Portfolio({ mode, onToggleMode }: PortfolioProps = {}) {
   const navLinks = [
     { href: '#about', label: 'About' },
     { href: '#skills', label: 'Skills' },
-    { href: '#shopify-apps', label: 'Shopify Apps' },
+    { href: '#shopify-apps', label: 'Shopify' },
     { href: '#projects', label: 'Projects' },
     { href: '#experience', label: 'Experience' },
     { href: '#certifications', label: 'Certifications' },
