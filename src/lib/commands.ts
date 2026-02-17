@@ -112,6 +112,7 @@ export function getSkills(): CommandOutput {
   renderSkillCategory("Frontend", skills.frontend);
   renderSkillCategory("Backend", skills.backend);
   renderSkillCategory("Tools & Platforms", skills.tools);
+  renderSkillCategory("AI & Methodology", skills.ai);
 
   return output;
 }

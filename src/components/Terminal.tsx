@@ -31,6 +31,11 @@ export default function Terminal({ mode, onToggleMode }: TerminalProps = {}) {
 
   const firstName = personalInfo.name.split(" ")[0].toLowerCase();
 
+  const getLineDelay = useCallback(() => {
+    if (typeof window === "undefined") return 40;
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 0 : 40;
+  }, []);
+
   const scrollToBottom = useCallback(() => {
     if (mainRef.current) {
       mainRef.current.scrollTop = mainRef.current.scrollHeight;
@@ -49,9 +54,9 @@ export default function Terminal({ mode, onToggleMode }: TerminalProps = {}) {
         const id = lineCounterRef.current++;
         setLines(prev => [...prev, { id, html: line || "&nbsp;" }]);
         scrollToBottom();
-      }, 40 * idx);
+      }, getLineDelay() * idx);
     });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [getLineDelay]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Focus input on mount and click
   useEffect(() => {
@@ -99,7 +104,7 @@ export default function Terminal({ mode, onToggleMode }: TerminalProps = {}) {
           const id = lineCounterRef.current++;
           setLines(prev => [...prev, { id, html: line || "&nbsp;" }]);
           scrollToBottom();
-        }, 40 * idx);
+        }, getLineDelay() * idx);
       });
     } else if (action === "repo") {
       output.forEach((line, idx) => {
@@ -107,7 +112,7 @@ export default function Terminal({ mode, onToggleMode }: TerminalProps = {}) {
           const id = lineCounterRef.current++;
           setLines(prev => [...prev, { id, html: line || "&nbsp;" }]);
           scrollToBottom();
-        }, 40 * idx);
+        }, getLineDelay() * idx);
       });
 
       setTimeout(() => {
@@ -125,14 +130,14 @@ export default function Terminal({ mode, onToggleMode }: TerminalProps = {}) {
           if (idx === output.length - 1) {
             setIsAnimating(false);
           }
-        }, 40 * idx);
+        }, getLineDelay() * idx);
       });
     }
 
     setInput("");
     setHistoryIndex(-1);
     setTempInput("");
-  }, [input, isAnimating, scrollToBottom]);
+  }, [input, isAnimating, scrollToBottom, getLineDelay]);
 
   const handleKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {

@@ -1,13 +1,14 @@
 'use client';
 
 import { skills } from '@/data/portfolio';
-import { Code2, Server, ShoppingCart, Wrench } from 'lucide-react';
+import { Code2, Server, ShoppingCart, Wrench, Bot } from 'lucide-react';
 
 const categoryIcons = {
   shopify: ShoppingCart,
   frontend: Code2,
   backend: Server,
   tools: Wrench,
+  ai: Bot,
 };
 
 const categoryLabels = {
@@ -15,6 +16,7 @@ const categoryLabels = {
   frontend: 'Frontend',
   backend: 'Backend',
   tools: 'Tools & Platforms',
+  ai: 'AI & Methodology',
 };
 
 export default function Skills() {

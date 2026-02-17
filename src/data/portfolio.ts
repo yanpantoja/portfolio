@@ -2,7 +2,7 @@ export const personalInfo = {
   name: "Yan Pantoja",
   role: "Full Stack Developer",
   tagline: "Shopify Developer",
-  bio: `Full Stack Developer with 8+ years of experience building web and e-commerce solutions, with strong expertise in PHP, Magento 2, and Shopify. Started my career with PHP back-end development, evolving into the Magento 2 ecosystem where I worked for over 3 years on payment gateway integrations, maintenance, and custom module development. Currently working with Shopify, specialized in creating and maintaining custom themes using Liquid, JavaScript, and CSS, focusing on performance, usability, and third-party system integrations.`,
+  bio: `Full Stack Developer with 8+ years of experience building web and e-commerce solutions, with strong expertise in PHP, Magento 2, and Shopify. Started my career with PHP back-end development, evolving into the Magento 2 ecosystem where I worked for over 3 years on payment gateway integrations, maintenance, and custom module development. Currently working with Shopify, specialized in creating and maintaining custom themes using Liquid, JavaScript, and CSS, focusing on performance, usability, and third-party system integrations. Actively integrating AI-assisted development workflows into my process, using Claude Code for pair programming and adopting Spec Driven Development to deliver well-architected, specification-first solutions.`,
   location: "Vila Velha – ES, Brazil",
   phone: "(27) 9.9881-9839",
   email: "yanmpantoja@gmail.com",
@@ -41,22 +41,27 @@ export const skills = {
     { name: "Magento 2", level: 85 },
     { name: "WooCommerce", level: 75 },
   ],
+  ai: [
+    { name: "Claude Code", level: 90 },
+    { name: "Spec Driven Development", level: 85 },
+    { name: "AI Pair Programming", level: 90 },
+    { name: "Prompt Engineering", level: 85 },
+  ],
 };
 
 export const projects = [
   {
     id: 1,
-    title: "Multi-Channel Automation",
+    title: "Legal Case Management System",
     description:
-      "Multi-channel communication automation system using Chatwoot and n8n for small and medium businesses.",
-    longDescription: `Automation solution that integrates WhatsApp, email and social media
-      through Chatwoot with automated workflows via n8n.`,
-    tech: ["Chatwoot", "n8n", "Node.js", "Docker", "PostgreSQL"],
-    category: "Automation",
-    image: "/images/projects/automation.png",
+      "Full-stack case management platform for a Brazilian law office, handling client processes, deadline tracking, PDF document generation, and automated notifications.",
+    longDescription: `Complete case management solution built with Laravel 11 and Filament v3 for a law office specializing in social security cases. Features multi-step client registration wizards, automated deadline notifications with many-to-many distribution, 10+ PDF document templates (contracts, declarations, power of attorney), dynamic calendar integration, and reception tracking.`,
+    tech: ["Laravel 11", "Filament v3", "Livewire", "MySQL", "DomPDF"],
+    status: "Production",
+    category: "Legal Tech",
+    image: null,
     github: null,
     demo: null,
-    featured: false,
   },
 ];
 
